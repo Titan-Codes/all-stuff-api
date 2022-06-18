@@ -18,6 +18,10 @@ app.get("/", (req,res) => {
     res.render("home");
 });
 
+app.get("*", (req,res) => {
+    res.send("<h1 style='text-align: center;'>Looks like this page doesn't exist.</h1>");
+});
+
 app.listen(3000, () => {
     console.log("Server running.");
 });
