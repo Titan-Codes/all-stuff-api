@@ -10,6 +10,10 @@ app.set('view engine', 'ejs');
 app.use(bodyParser.urlencoded({extended: true}));
 app.use(express.static("public"));
 
+// BASIC STUFF ABOVE
+
+// ALL THE ROUTS BELOW
+
 app.get("/", (req,res) => {
     res.render("home");
 });
