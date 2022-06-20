@@ -15,13 +15,6 @@ app.use(express.static("public"));
 
 // ALL THE ROUTS BELOW
 
-function getCat(){
-    axios.get("https://api.thecatapi.com/v1/images/search")
-        .then(response => {
-            const catImage = response.data[0].url
-        })
-}
-
 app.get("/", (req,res) => {
     res.render("home");
 });
@@ -31,7 +24,8 @@ app.route("/cats")
         axios.get("https://api.thecatapi.com/v1/images/search?size=small")
             .then(response => {
                 const catImage = response.data[0].url
-                res.render("cats", {catImage: catImage})
+                res.send(response)
+                // res.render("cats", {catImage: catImage})
             })
     })
 
