@@ -19,6 +19,7 @@ app.get("/", (req,res) => {
     res.render("home");
 });
 
+// cat api
 app.route("/cats")
     .get((req,res) => {
         axios.get("https://api.thecatapi.com/v1/images/search?size=small")
@@ -28,6 +29,8 @@ app.route("/cats")
             })
     })
 
+
+
 app.get("*", (req,res) => {
     res.send("<h1 style='text-align: center;'>Looks like this page doesn't exist.</h1>");
 });
@@ -35,3 +38,5 @@ app.get("*", (req,res) => {
 app.listen(process.env.PORT || 3000, () => {
     console.log("Server running.");
 });
+
+module.exports = app;
