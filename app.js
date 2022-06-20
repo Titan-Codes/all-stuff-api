@@ -24,8 +24,7 @@ app.route("/cats")
         axios.get("https://api.thecatapi.com/v1/images/search?size=small")
             .then(response => {
                 const catImage = response.data[0].url
-                res.send(response)
-                // res.render("cats", {catImage: catImage})
+                res.send(response.data[0])
             })
     })
 
