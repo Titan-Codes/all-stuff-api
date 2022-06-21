@@ -38,6 +38,15 @@ app.route("/dogs")
             })
     })
 
+// joke api
+
+app.route("/jokes")
+    .get((req, res) => {
+        axios.get("https://v2.jokeapi.dev/joke/Any?type=single")
+            .then(response => {
+                res.send(response.data)
+            })
+    })
 
 // 404 page
 app.get("*", (req,res) => {
