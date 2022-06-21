@@ -13,7 +13,7 @@ app.use(express.static("public"));
 
 // BASIC STUFF ABOVE
 
-// ALL THE ROUTS BELOW
+// ALL THE ROUTES BELOW
 
 app.get("/", (req,res) => {
     res.render("home");
@@ -29,10 +29,19 @@ app.route("/cats")
             })
     })
 
+// dog api
+app.route("/dogs")
+    .get((req,res) => {
+        axios.get("https://dog.ceo/api/breeds/image/random")
+            .then(response => {
+                res.send(response.data)
+            })
+    })
 
 
+// 404 page
 app.get("*", (req,res) => {
-    res.send("<h1 style='text-align: center;'>Looks like this page doesn't exist.</h1>");
+    res.render("error");
 });
 
 app.listen(process.env.PORT || 3000, () => {

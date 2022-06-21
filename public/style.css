@@ -8,12 +8,19 @@ body {
 .list-item {
     text-decoration: none;
     list-style: none;
+    transition: 0.5s;
 }
 
-a {
+.list-item a {
     font-size: 20px;
     color: rgb(185, 77, 77);
     text-decoration: none;
+    transition: 0.5s;
+}
+
+.list-item:hover {
+    transition: 0.5s;
+    transform: translateX(-5px);
 }
 
 .refresh-button {
